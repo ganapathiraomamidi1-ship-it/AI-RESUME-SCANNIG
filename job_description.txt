@@ -1,0 +1,9 @@
+Data Analyst / Data Scientist
+
+Required skills:
+Python, SQL, Pandas, NumPy, Statistics, Machine Learning, Scikit-learn,
+Data Analysis, Excel, Power BI, Git, GitHub
+
+Responsibilities:
+Analyze datasets, build machine-learning models, create reports and dashboards,
+clean data, communicate findings, and collaborate with technical teams.
