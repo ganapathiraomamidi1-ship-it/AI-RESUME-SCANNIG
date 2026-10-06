@@ -1,98 +1,55 @@
-# AI Resume Scanner & ATS Analyzer 🤖📄
+# AI Resume Scanner & ATS Analyzer 🤖
 
-An explainable Python resume-screening project that extracts text from PDF/DOCX resumes and compares it with a job description to produce an ATS-style compatibility score.
-
-> **Important:** Educational screening aid only. It should not be used as the sole basis for employment decisions or to infer protected/sensitive characteristics.
+An explainable Python-based resume screening project that compares resumes with job descriptions, extracts relevant skills, identifies missing keywords, and produces an ATS-style match score.
 
 ## Features
-
-- PDF resume extraction with **pypdf**
-- DOCX resume extraction with **python-docx**
-- Job-description skill detection
-- Resume-to-job skill matching
-- ATS-style compatibility score
-- Matched and missing skill report
-- Experience-related keyword signal
-- Explainable scoring
-- Command-line interface
+- Resume skill extraction
+- Job-description skill extraction
+- Matched and missing skill analysis
+- Explainable ATS-style scoring
+- Email, phone, LinkedIn and GitHub signal checks
+- Single-resume analysis
+- Batch resume ranking
+- JSON report generation
 
 ## Tech Stack
-
-**Python · NLP-style text processing · Regular Expressions · pandas · scikit-learn · pypdf · python-docx**
-
-## Project Structure
-
-    AI-RESUME-SCANNIG/
-    ├── src/
-    │   ├── __init__.py
-    │   ├── main.py
-    │   ├── parser.py
-    │   └── scorer.py
-    ├── job_description.txt
-    ├── requirements.txt
-    ├── .gitignore
-    ├── LICENSE
-    └── README.md
+Python, pandas, NumPy, scikit-learn, PyPDF2, python-docx
 
 ## Installation
-
-    git clone https://github.com/ganapathiraomamidi1-ship-it/AI-RESUME-SCANNIG.git
-    cd AI-RESUME-SCANNIG
-    python -m venv .venv
-
-Windows:
-
-    .venv\Scripts\activate
-
-macOS/Linux:
-
-    source .venv/bin/activate
-
-Install packages:
-
     pip install -r requirements.txt
 
-## Run
+## Analyze a Resume
+    python src/resume_scanner.py --resume resume.txt --job job_description.txt
 
-Place a PDF or DOCX resume in the project directory:
+The analyzer generates an explainable JSON report under `outputs/`.
 
-    python src/main.py --resume your_resume.pdf --job job_description.txt
+## Rank Multiple Resumes
+Place TXT or Markdown resumes in a directory:
 
-The scanner reports:
-
-- Overall ATS-style score
-- Keyword match score
-- Experience signal score
-- Matched skills
-- Missing job skills
+    python src/batch_scan.py --resumes resumes/ --job job_description.txt
 
 ## Scoring Method
+The default ATS-style score uses 85% skill matching and 15% contact/profile completeness. The scoring is intentionally transparent and rule-based so the result can be explained.
 
-The current transparent baseline uses:
+**Important:** This is an educational portfolio project, not a validated hiring or employment decision system. It should not be used as the sole basis for recruiting decisions.
 
-- **80% skill/keyword match**
-- **20% experience-related language signal**
-
-The skill score is calculated from skills detected in the job description and whether those skills appear in the resume.
-
-This is intentionally simple and explainable. The score is **not** a probability of getting hired and does not measure a person's actual ability.
+## Project Structure
+    AI-RESUME-SCANNIG/
+    ├── src/
+    │   ├── resume_scanner.py
+    │   └── batch_scan.py
+    ├── job_description.txt
+    ├── requirements.txt
+    └── README.md
 
 ## Future Improvements
-
-- TF-IDF + cosine similarity
-- Sentence-transformer semantic similarity
-- Skill taxonomy and synonym matching
-- Resume section detection
-- Missing-keyword recommendations
-- Streamlit web interface
-- JSON/PDF reports
-- Unit tests and benchmark dataset
-- Bias/fairness evaluation
-
-## Portfolio Skills Demonstrated
-
-Python, NLP, text preprocessing, feature engineering, explainable AI, document processing, machine-learning concepts, Git and GitHub.
+- PDF and DOCX resume parsing
+- NLP embeddings for semantic matching
+- Named-entity extraction
+- Resume section classification
+- Streamlit dashboard
+- Explainable recommendations for missing skills
+- Automated tests and benchmark dataset
 
 ## Author
-
-**Ganapathi Rao Mamidi**
+Ganapathi Rao Mamidi
